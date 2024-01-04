@@ -1,17 +1,18 @@
-import Hero from "./Hero";
-import Explore from "./Explore";
-import About from "./About";
-import GetStarted from "./GetStarted";
-import Feedback from "./Feedback";
-import World from "./World";
-import Roadmap from "./Roadmap";
+import Navbar from './Navbar';
+import { TypingText, TitleText } from './CustomTexts';
+import ExploreCard from './ExploreCard';
+import StartSteps from './StartSteps';
+import NewFeatures from './NewFeatures';
+import InsightCard from './InsightCard';
+import Footer from './Footer';
 
 export {
-    Hero,
-    About,
-    Explore,
-    GetStarted,
-    Feedback,
-    World,
-    Roadmap
+    Navbar,
+    TitleText,
+    TypingText,
+    StartSteps,
+    NewFeatures,
+    ExploreCard,
+    InsightCard,
+    Footer,
 }

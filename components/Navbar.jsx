@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-import styles from '../styles';
+import styles from '../styles/index';
 import { navVariants } from '../utils/motion';
 
 const Navbar = () => (
@@ -10,7 +10,7 @@ const Navbar = () => (
     variants={navVariants}
     initial="hidden"
     whileInView="show"
-    className={`${styles.xPaddings} py-8 relative`}
+    className={`sm:px-16 px-6 py-8 relative`}
   >
     <div className="absolute w-[50%] inset-0 gradient-01" />
     <div
