@@ -120,18 +120,22 @@ const experiences = [
 export const socials = [
   {
     name: 'twitter',
-    url: '/twitter.svg',
+    logo: '/twitter.svg',
+    url:"https://twitter.com/0xMinaPoker"
   },
   {
     name: 'linkedin',
-    url: '/linkedin.svg',
+    logo: '/linkedin.svg',
+    url:"https://twitter.com/0xMinaPoker"
   },
   {
     name: 'instagram',
-    url: '/instagram.svg',
+    logo: '/instagram.svg',
+    url:"https://twitter.com/0xMinaPoker"
   },
   {
     name: 'facebook',
-    url: '/facebook.svg',
+    logo: '/facebook.svg',
+    url:"https://twitter.com/0xMinaPoker"
   },
 ];
