@@ -19,7 +19,7 @@ const World = () => (
       <TypingText title="| Multipler tables" textStyles="text-center" />
       <TitleText
         title={(
-          <>Track friends around you and invite them to play together in the Relm of Poker 
+          <>Track friends around you and invite them to play together in the Relam of Poker 
           </>
         )}
         textStyles="text-center"
