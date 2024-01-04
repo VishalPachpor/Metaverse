@@ -21,7 +21,7 @@ export const exploreWorlds = [
   },
   {
     id: 'world-5',
-    imgUrl: '/User_Friendly.jpeg',
+    imgUrl: '/User_friendly.jpeg',
     title: 'User-Friendly Interface',
   },
 ];
