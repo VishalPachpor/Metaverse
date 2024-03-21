@@ -3,6 +3,10 @@ import React, { useState } from 'react'
 import dummyImg from "../public/ Decentralise_gaming.jpeg"
 import Image from 'next/image';
 import { addBetaAccess } from '../lib/databasefunctions';
+import { FaStarOfLife } from "react-icons/fa";
+import { MdOutlineEmail } from "react-icons/md";
+import { AiOutlineUser } from "react-icons/ai";
+import { IoWallet } from "react-icons/io5";
 
 
 const toastOptions = {
@@ -20,13 +24,24 @@ const WhiteList = () => {
   const [format, setFormat] = useState("");
   const [message, setMessage] = useState([])
   const [errors, setErrors] = useState()
+  const [address, setAddress] = useState()
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    social: "",
+    country: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitting form...", userName)
-    console.log("Submitting form...", email)
-    console.log("Submitting form...", country)
-    console.log("Submitting form...", format)
+    console.log("Submitting form...", formData)
 
     const res = await addBetaAccess(address, userName, email, country, format);
 
@@ -41,70 +56,93 @@ const WhiteList = () => {
           <Image src={dummyImg} height={400} width={400} alt="dummy" />
         </div>
 
-        <div className=" w-1/2 border border-solid border-slate-300">
-          <form
-            onSubmit={handleSubmit}
-            action="#"
-            className="py-2 mt-4 flex flex-col gap-4 items-center justify-center p-4"
-          >
-            <div>
-              <label>Username</label>
-              <input
-                type="text"
-                id="userName"
-                placeholder="0xVishal.eth"
-                onChange={(e) => {
-                  setUserName(e.target.value);
-                }}
-                value={userName}
-              />
+        <div className="w-1/2 p-5 px-5 border border-solid border-slate-300 text-black ">
+          <form onSubmit={handleSubmit}>
+            <div className="relative pb-3">
+              <div className="text-white px-2 md:px-0 flex">Your Name {<FaStarOfLife size={6} className="text-red-600 mt-1 mx-2" />}
+              </div>
+              <div className=" ">
+                <span className="absolute inset-y-0 top-5 right-0 flex items-center pr-4">
+                  <AiOutlineUser size={25} className="text-gray-400" />
+                </span>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  placeholder="John Carter"
+                  onChange={handleChange}
+                  required
+                  className="peer px-6 py-2 border flex gap-6 border-slate-200  bg-white w-full rounded-[20px] text-slate-700 dark:text-slate-600 hover:border-slate-200 hover:shadow transition duration-150"
+                />
+              </div>
             </div>
 
-            <div>
-              <label> Email</label>
-              <input
-                type="email"
-                id="email"
-                placeholder="example@gmail.com"
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-                value={email}
-              />
+            <div className="relative pb-3">
+              <div className="text-white px-2 md:px-0 flex">Your Social Profile {<FaStarOfLife size={6} className="text-red-600 mt-1 mx-2" />}
+              </div>
+              <div className=" text-gray-500 ">
+                <span className="absolute inset-y-0 top-5 right-0 flex items-center pr-4">
+                  <MdOutlineEmail size={25} className="text-gray-400" />
+                </span>
+                <input
+                  type="text"
+                  id="social"
+                  name="social"
+                  value={formData.social}
+                  placeholder="Share your X profile link"
+                  onChange={handleChange}
+                  required
+                  className="peer px-6 py-2 border flex gap-6 border-slate-200  bg-white w-full rounded-[20px] text-slate-700 dark:text-slate-600 hover:border-slate-200 hover:shadow transition duration-150"
+                />
+              </div>
             </div>
 
-            <div>
-              <label>Country/Region</label>
-              <input
-                type="text"
-                id="country"
-                placeholder="India"
-                onChange={(e) => {
-                  setCountry(e.target.value);
-                }}
-                value={country}
-              />
+            <div className="relative pb-3">
+              <div className="text-white px-2 md:px-0 flex">Your Mina Wallet Address {<FaStarOfLife size={6} className="text-red-600 mt-1 mx-2" />}
+              </div>
+              <div className=" text-gray-500 ">
+                <span className="absolute inset-y-0 top-5 right-0 flex items-center pr-4">
+                  <IoWallet size={25} className="text-gray-400" />
+                </span>
+                <input 
+                  type="text"
+                  id="address"
+                  name="address"
+                  value={address}
+                  placeholder="Share your Wallet Address"
+                  onChange={()=>setAddress(address)}
+                  required
+                  className="peer px-6 py-2 border flex gap-6 border-slate-200  bg-white w-full rounded-[20px] text-slate-700 dark:text-slate-600 hover:border-slate-200 hover:shadow transition duration-150"
+                />
+              </div>
             </div>
 
-            <div>
-              <label>Preferred Game Format</label>
-              <select
-                name="format"
-                id="format"
-                className="m-4 text-gray-400"
-                onChange={(e) => { setFormat(e.target.value) }}
-                value={format}
-              >
-                <option value="Texas Holdem">Texas Holdem</option>
-                <option value="Omaha">Omaha</option>
-                <option value="Seven Card Stud">Seven Card Stud</option>
-                <option value="Five Card Draw">Five Card Draw</option>
-              </select>
+
+
+            {/* <div className=" h-[0px] border my-3 border-neutral-300"></div> */}
+
+            <div className="relative mt-3 rounded-xl ">
+              <div className="text-white px-2 md:px-0 flex">Email
+              </div>
+              <div className=" ">
+
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  placeholder="abc@gmail.com"
+                  onChange={handleChange}
+                  className="peer px-6 py-2 border flex gap-6 border-slate-200  bg-white w-full rounded-[20px] text-slate-700 dark:text-slate-600 hover:border-slate-200 hover:shadow transition duration-150"
+                />
+
+              </div>
             </div>
 
-            <div>
-              <button className="w-[300px] rounded-xl border border-solid border-slate-200">
-                Whitelist
+            <div className="my-5 flex justify-center align-items-center">
+              <button type="submit" className="bg-orange-500  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-black text-xl font-bold px-5 py-3 rounded-full hover:bg-orange-600">
+                LET'S GO
               </button>
             </div>
           </form>
