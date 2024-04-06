@@ -12,9 +12,11 @@
   "dependencies": {
     "eslint-config-next": "13.0.3",
     "framer-motion": "^7.6.7",
+    "mongoose": "^8.2.4",
     "next": "13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-toastify": "^10.0.5",
     "react-vertical-timeline-component": "^3.6.0"
   },
   "devDependencies": {

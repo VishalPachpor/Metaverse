@@ -39,7 +39,6 @@
   height: 438px;
   top: 0px;
   right: 0px;
-
   background: #7aebfb;
   filter: blur(190px);
 }
@@ -104,4 +103,19 @@
 
   background: #65c4fa;
   filter: blur(150px);
+}
+
+form > div{
+  @apply flex flex-col gap-2;
+}
+
+input, select {
+  @apply shadow-md px-6 py-2 border border-slate-300 bg-transparent text-white;
+}
+button{
+  @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+}
+
+label{
+  @apply text-white
 }
