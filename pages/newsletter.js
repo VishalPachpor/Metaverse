@@ -3,21 +3,29 @@
 import React from 'react'
 import NewsletterForm from '../components/NewsLetterForm';
 import Socials from '../components/Socials';
-const Newsletter = () => {
-  return (
-    <div className="bg-[#03040B] flex flex-col items-center justify-center p-10 min-h-screen">
-      <div className="space-y-1">
-        <h2 className="z-10 text-3xl font-bold text-center text-transparent duration-1000 bg-white cursor-default text-stroke animate-title sm:text-5xl md:text-6xl whitespace-nowrap bg-clip-text">
-          Join the waitlist for my
-        </h2>
-        <h1 className="z-10 text-4xl font-bold text-center text-transparent duration-1000 bg-white cursor-default sm:text-6xl md:text-7xl whitespace-nowrap bg-clip-text bg-gradient-to-r from-purple-300 to-purple-800 animate-fade-in-3">
-          Newsletter
-        </h1>
-        <NewsletterForm />
-        <Socials />
-      </div>
-    </div>
-  );
-}
+import { motion } from "framer-motion";
+import styles from "../styles/index";
+import { navVariants } from "../utils/motion";
 
-export default Newsletter
+const Newsletter = () => (
+  <div className={` py-16 flex flex-col items-center justify-center bg-primary-black w-full`}>
+    <motion.nav
+      variants={navVariants}
+      initial="hidden"
+      whileInView="show"
+      className={`${styles.xPaddings} py-8 relative`}
+    >
+      <div className="absolute w-[50%] inset-0 gradient-03 text-center justify-center" />
+      <h2 className="font-extrabold text-[24px] leading-[30.24px] text-center justify-center text-white ">
+        Join our Newsletter
+      </h2>
+
+      <NewsletterForm />
+      <Socials />
+
+    </motion.nav>
+  </div>
+);
+
+export default Newsletter;
+
