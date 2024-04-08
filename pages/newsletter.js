@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import styles from "../styles/index";
 import { navVariants } from "../utils/motion";
 
-const Newsletter = () => (
+const newsletter = () => (
   <div className={` py-16 flex flex-col items-center justify-center bg-primary-black w-full min-h-screen`}>
     <motion.nav
       variants={navVariants}
@@ -27,5 +27,5 @@ const Newsletter = () => (
   </div>
 );
 
-export default Newsletter;
+export default newsletter;
 
