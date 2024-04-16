@@ -1,7 +1,8 @@
 "use client"
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import dummyImg from "../public/ Decentralise_gaming.jpeg"
 import Image from 'next/image';
+import { addBetaAccess } from '../lib/databasefunctions';
 
 
 const toastOptions = {
@@ -12,38 +13,27 @@ const toastOptions = {
   draggable: true,
 };
 
-const WhiteList =() => {
-    const  [userName, setUserName] = useState("");
-    const  [email, setEmail] = useState("");
-    const  [country, setCountry] = useState("");
-    const  [format, setFormat] = useState("");
-    const [message, setMessage] = useState([])
-    const [errors, setErrors] = useState()
+const WhiteList = () => {
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [country, setCountry] = useState("");
+  const [format, setFormat] = useState("");
+  const [message, setMessage] = useState([])
+  const [errors, setErrors] = useState()
 
-    const handleSubmit = async(e) => {
-        e.preventDefault();
-        console.log("Submitting form...", userName)
-        console.log("Submitting form...", email)
-        console.log("Submitting form...", country)
-        console.log("Submitting form...", format)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Submitting form...", userName)
+    console.log("Submitting form...", email)
+    console.log("Submitting form...", country)
+    console.log("Submitting form...", format)
 
-        const res = await fetch("/api/whitelist",{
-            method:"POST",
-            headers:{
-                "Content-type":"application/json",
-            },
-            body: JSON.stringify({
-                setUserName,
-                setEmail,
-                setCountry,
-                setFormat
-            })
-        });
+    const res = await addBetaAccess(address, userName, email, country, format);
 
-        const {msg} = await res.json();
-        setErrors(msg);
-        console.log(errors);
-    }
+    const { msg } = await res.json();
+    setErrors(msg);
+    console.log(errors);
+  }
   return (
     <div className="w-auto h-screen py-16 bg-primary-black justify-center text-center">
       <div className="flex py-5 flex-col-2 rounded-2xl justify-around text-black border border-solid border-white">
@@ -102,7 +92,7 @@ const WhiteList =() => {
                 name="format"
                 id="format"
                 className="m-4 text-gray-400"
-                onChange={(e)=>{setFormat(e.target.value)}}
+                onChange={(e) => { setFormat(e.target.value) }}
                 value={format}
               >
                 <option value="Texas Holdem">Texas Holdem</option>

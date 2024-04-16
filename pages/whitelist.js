@@ -17,7 +17,7 @@ const Whitelist = () => (
     >
       <div className="absolute w-[50%] inset-0 gradient-03 text-center justify-center" />
         <h2 className="font-extrabold text-[24px] leading-[30.24px] text-center justify-center text-white ">
-          White-Listing
+          Join us for the beta access
         </h2>
 
     <WhiteList/>
