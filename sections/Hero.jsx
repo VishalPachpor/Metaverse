@@ -35,7 +35,7 @@ const Hero = () => (
 
           <Link href="/newsletter">
             <div className=" p-4 text-xl font-bold mb-[100px] rounded-2xl bg-gradient-to-r from-[#00ff1e] via-purple-500 to-purple-800">
-             Subscribe to Newsletter
+              Subscribe to Newsletter
             </div>
           </Link>
         </div>

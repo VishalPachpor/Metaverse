@@ -24,13 +24,14 @@ const WhiteList = () => {
   const [format, setFormat] = useState("");
   const [message, setMessage] = useState([])
   const [errors, setErrors] = useState()
-  const [address, setAddress] = useState()
+  // const [address, setAddress] = useState()
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     social: "",
     country: "",
+    address: "",
   });
 
   const handleChange = (event) => {
@@ -43,7 +44,7 @@ const WhiteList = () => {
     e.preventDefault();
     console.log("Submitting form...", formData)
 
-    const res = await addBetaAccess(address, formData);
+    const res = await addBetaAccess(formData);
     console.log("res", res , "errors", errors, "message", message, "formData", formData)
 
     console.log(errors);
@@ -108,9 +109,9 @@ const WhiteList = () => {
                   type="text"
                   id="address"
                   name="address"
-                  value={address}
+                  value={formData.address}
                   placeholder="Share your Wallet Address"
-                  onChange={()=>setAddress(address)}
+                  onChange={handleChange}
                   required
                   className="peer px-6 py-2 border flex gap-6 border-slate-200  bg-white w-full rounded-[20px] text-slate-700 dark:text-slate-600 hover:border-slate-200 hover:shadow transition duration-150"
                 />
