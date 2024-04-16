@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
+import Link from 'next/link';
 import styles from '../styles/index';
 import { slideIn, staggerContainer, textVariant } from '../utils/motion';
 
@@ -26,6 +26,11 @@ const Hero = () => (
           <div className={styles.heroDText} />
           <h1 className={styles.heroHeading}>ker</h1>
         </motion.div>
+        <Link href="/waitlist">
+        <div className=" p-4 text-xl font-bold mb-[100px] rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+          Try Beta Access
+        </div>
+        </Link>
       </div>
 
       <motion.div

@@ -43,10 +43,9 @@ const WhiteList = () => {
     e.preventDefault();
     console.log("Submitting form...", formData)
 
-    const res = await addBetaAccess(address, userName, email, country, format);
+    const res = await addBetaAccess(address, formData);
+    console.log("res", res , "errors", errors, "message", message, "formData", formData)
 
-    const { msg } = await res.json();
-    setErrors(msg);
     console.log(errors);
   }
   return (
