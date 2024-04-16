@@ -26,11 +26,19 @@ const Hero = () => (
           <div className={styles.heroDText} />
           <h1 className={styles.heroHeading}>ker</h1>
         </motion.div>
-        <Link href="/waitlist">
-        <div className=" p-4 text-xl font-bold mb-[100px] rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-          Try Beta Access
+        <div className='flex gap-4'>
+          <Link href="/waitlist">
+            <div className=" p-4 text-xl font-bold mb-[100px] rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+              Try Beta Access
+            </div>
+          </Link>
+
+          <Link href="/newsletter">
+            <div className=" p-4 text-xl font-bold mb-[100px] rounded-2xl bg-gradient-to-r from-[#00ff1e] via-purple-500 to-purple-800">
+             Subscribe to Newsletter
+            </div>
+          </Link>
         </div>
-        </Link>
       </div>
 
       <motion.div
